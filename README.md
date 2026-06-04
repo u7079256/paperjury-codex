@@ -36,8 +36,8 @@ The intended use is to surface avoidable problems earlier, while you can still a
 ## Install
 
 PaperJury Codex is a Codex-first skill. The Claude Code version lives in the
-original `paperjury` repository; this repository does not ship or execute Claude
-Workflow files.
+original [paperjury](https://github.com/u7079256/paperjury) repository; this
+repository does not ship or execute Claude Workflow files.
 
 ```powershell
 # Windows (PowerShell)
