@@ -23,6 +23,19 @@ Interactive overview: the [live site](https://u7079256.github.io/paperjury/overv
 
 ---
 
+## News
+
+- **Codex plugin released.** PaperJury Codex is now packaged for the Codex plugin marketplace route. If you are interested in pre-submission paper review workflows, please star this repo; we would also greatly appreciate issues, feedback, and suggestions.
+- 🧪 **Dogfood sample added:** this repo now includes a compact dogfood sample with before/after PDFs and a human-verified run report.
+
+## TODO
+
+- [x] **Codex plugin marketplace release.** Package PaperJury for direct install through the Codex plugin marketplace route, alongside the legacy clone install.
+- [ ] **Fast mode / quick version.** A lower-latency, lower-token path for fast checks when you want useful triage more than full courtroom depth.
+- [ ] **Claude Code plugin marketplace release.** Package the Claude Code version for direct install from the Claude Code plugin marketplace, alongside the clone install in the original PaperJury repo.
+
+---
+
 ## Responsible Use
 
 PaperJury is a pre-submission self-check workflow. It does not replace the author's scientific judgment, and it does not replace peer review. It should never be used to invent experiments, fabricate results, add unsupported claims, or hide a paper's limitations.
@@ -206,7 +219,6 @@ Your project files, ledger, journal, and patches stay inside your local paper pr
 Where this is going (planned, not yet shipped):
 
 - **Reviewer personas tuned to each venue community's taste.** CVPR, ACL, and NeurIPS reviewers do not critique the same way; the goal is a reviewer that carries each community's expectations, beyond the current three-family style context.
-- **Codex plugin packaging** for marketplace-based installation.
 - **Vision-based layout verification**: compile, render, and check the visual layout (column overflow, figure placement), not just the compile log.
 - **Automatic venue detection** from your `.cls` / template.
 - **Validation of the engine on real papers at scale.**

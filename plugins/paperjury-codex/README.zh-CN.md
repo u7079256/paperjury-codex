@@ -23,6 +23,19 @@ PaperJury Codex 是 Codex skill，支持三种模式：direct-edit、review、au
 
 ---
 
+## News / 最新进展
+
+- **Codex plugin 已发布。** PaperJury Codex 现在已经支持通过 Codex plugin marketplace 路线安装。如果你对投稿前论文评审 workflow 感兴趣，欢迎 star 这个 repo；我们也非常希望你能提出宝贵的 issue、反馈和建议。
+- 🧪 **Dogfood sample added：** 这个 repo 现在包含一个紧凑的 dogfood sample，里面有修改前后 PDF 和人工核对过的 run report。
+
+## TODO
+
+- [x] **Codex plugin marketplace release.** 将 PaperJury 打包为可通过 Codex plugin marketplace 路线直接安装的版本，同时保留 legacy clone 安装。
+- [ ] **Fast mode / quick version.** 做一个低延迟、低 token 的快速检查路径；当你更想要有用的 triage，而不是完整 courtroom 深度时使用。
+- [ ] **Claude Code plugin marketplace release.** 将 Claude Code 版本打包到 Claude Code plugin marketplace，和原始 PaperJury repo 里的 clone 安装并行。
+
+---
+
 ## 使用边界
 
 PaperJury 是投稿前的自查流程，不替代作者的科学判断，也不替代 peer review。它不能拿来编造实验、伪造结果、加上没有证据支撑的 claim，或者掩盖论文局限。
@@ -202,7 +215,6 @@ writing toolkit 的工具名（具体 prompt 内容此处不列）：`translate-
 还在路上（规划中，尚未上线）：
 
 - **评审人格带上每个会议 community 的 taste。** CVPR、ACL、NeurIPS 的 reviewer 挑刺口味并不一样；目标是让评审带上各自社区的预期，而不只是现在的三族 style 上下文。
-- **Codex plugin 打包**，支持 marketplace 方式安装。
 - **基于视觉的版面校验**：编译、渲染、再检查版面（分栏溢出、图表摆放），不只看编译日志。
 - **从 `.cls` / 模板自动识别 venue。**
 - **在更多真实论文上规模化验证引擎。**
