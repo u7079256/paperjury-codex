@@ -18,5 +18,10 @@ wrapper directory:
 - config template: `../../configs/config-template.md`
 - fallback agent metadata/personas: `../../agents/`
 
+At the start of each PaperJury invocation, run the plugin root's
+`scripts/check-update.js` unless `PAPERJURY_DISABLE_UPDATE_CHECK=1` is set. Show
+an update notice only when the script reports an available update; otherwise
+continue silently and never block the workflow on update checking.
+
 Project-specific paper files, ledgers, journals, and generated patches belong in
 the user's active paper project. Do not write them into the plugin directory.

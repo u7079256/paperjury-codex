@@ -27,11 +27,13 @@ Interactive overview: the [live site](https://u7079256.github.io/paperjury/overv
 ## 📰 News
 
 - 🚀 **Codex plugin released.** PaperJury Codex is now packaged for the Codex plugin marketplace route. If you are interested in pre-submission paper review workflows, please ⭐ star this repo; we would also greatly appreciate issues, feedback, and suggestions.
+- 🔔 **v1.0 release:** the Codex plugin now includes a non-blocking update reminder that points users to the latest stable release when a newer tag exists.
 - 🧪 **Dogfood sample added:** this repo now includes a compact dogfood sample with before/after PDFs and a human-verified run report.
 
 ## ✅ TODO
 
 - [x] 🔌 **Codex plugin marketplace release.** Package PaperJury for direct install through the Codex plugin marketplace route, alongside the legacy clone install.
+- [x] 🔔 **Soft update reminders.** Check for newer stable release tags at PaperJury startup and show a non-blocking update notice.
 - [ ] ⚡ **Fast mode / quick version.** A lower-latency, lower-token path for fast checks when you want useful triage more than full courtroom depth.
 - [ ] 🧩 **Claude Code plugin marketplace release.** Package the Claude Code version for direct install from the Claude Code plugin marketplace, alongside the clone install in the original PaperJury repo.
 
@@ -54,14 +56,24 @@ lives in the original [paperjury](https://github.com/u7079256/paperjury)
 repository; this repository does not ship or execute Claude Workflow files.
 
 ```powershell
-# Add the PaperJury Codex plugin marketplace.
+# Latest channel: use the current main branch when installing or reinstalling.
 codex marketplace add u7079256/paperjury-codex
+
+# Stable pinned release: reproducible v1.0 install.
+codex marketplace add u7079256/paperjury-codex@v1.0
 ```
 
 Then install **PaperJury Codex** from the Codex plugin UI. The plugin exposes the
 `paperjury` skill and ships its deterministic Node guards in the plugin package.
 `node` is required for deterministic checks; a LaTeX toolchain is optional
 because compile checks degrade honestly when it is absent.
+
+At the start of a PaperJury run, the plugin performs a soft update check against
+stable GitHub release tags. If a newer tag exists, it prints the latest-channel
+and pinned-release install commands; if GitHub is unreachable, it stays silent
+and continues. Set `PAPERJURY_DISABLE_UPDATE_CHECK=1` to disable this reminder.
+After reinstalling or changing release channels, start a new Codex thread so the
+updated skill content is loaded.
 
 If your Codex surface does not yet expose plugin installation, the legacy skill
 install still works:

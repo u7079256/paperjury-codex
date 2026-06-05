@@ -38,6 +38,13 @@ inputs, outputs, isolation, and validation. Run deterministic guards with
 `node scripts/*.js`, and run semantic fan-out via Codex subagents only when the
 user has explicitly authorized multi-agent work.
 
+Soft update reminder: at the start of each PaperJury invocation, before choosing
+the mode or editing a manuscript, run `node scripts/check-update.js` from the
+skill root unless `PAPERJURY_DISABLE_UPDATE_CHECK=1` is set. If it reports an
+available update, show the notice once and continue. If the check is skipped,
+silent, or cannot reach GitHub, continue without mentioning it; update checks are
+never allowed to block review or editing.
+
 If host capabilities conflict with this file, keep the scientific invariants:
 author sign-off, reviewer isolation, no silent drops, a machine ledger, and honest
 degradation when a check cannot be verified.
