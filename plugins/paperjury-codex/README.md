@@ -23,16 +23,16 @@ Interactive overview: the [live site](https://u7079256.github.io/paperjury/overv
 
 ---
 
-## News
+## 📰 News
 
-- **Codex plugin released.** PaperJury Codex is now packaged for the Codex plugin marketplace route. If you are interested in pre-submission paper review workflows, please star this repo; we would also greatly appreciate issues, feedback, and suggestions.
+- 🚀 **Codex plugin released.** PaperJury Codex is now packaged for the Codex plugin marketplace route. If you are interested in pre-submission paper review workflows, please ⭐ star this repo; we would also greatly appreciate issues, feedback, and suggestions.
 - 🧪 **Dogfood sample added:** this repo now includes a compact dogfood sample with before/after PDFs and a human-verified run report.
 
-## TODO
+## ✅ TODO
 
-- [x] **Codex plugin marketplace release.** Package PaperJury for direct install through the Codex plugin marketplace route, alongside the legacy clone install.
-- [ ] **Fast mode / quick version.** A lower-latency, lower-token path for fast checks when you want useful triage more than full courtroom depth.
-- [ ] **Claude Code plugin marketplace release.** Package the Claude Code version for direct install from the Claude Code plugin marketplace, alongside the clone install in the original PaperJury repo.
+- [x] 🔌 **Codex plugin marketplace release.** Package PaperJury for direct install through the Codex plugin marketplace route, alongside the legacy clone install.
+- [ ] ⚡ **Fast mode / quick version.** A lower-latency, lower-token path for fast checks when you want useful triage more than full courtroom depth.
+- [ ] 🧩 **Claude Code plugin marketplace release.** Package the Claude Code version for direct install from the Claude Code plugin marketplace, alongside the clone install in the original PaperJury repo.
 
 ---
 

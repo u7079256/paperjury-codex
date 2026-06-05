@@ -23,16 +23,16 @@ PaperJury Codex 是 Codex skill，支持三种模式：direct-edit、review、au
 
 ---
 
-## News / 最新进展
+## 📰 News / 最新进展
 
-- **Codex plugin 已发布。** PaperJury Codex 现在已经支持通过 Codex plugin marketplace 路线安装。如果你对投稿前论文评审 workflow 感兴趣，欢迎 star 这个 repo；我们也非常希望你能提出宝贵的 issue、反馈和建议。
+- 🚀 **Codex plugin 已发布。** PaperJury Codex 现在已经支持通过 Codex plugin marketplace 路线安装。如果你对投稿前论文评审 workflow 感兴趣，欢迎 ⭐ star 这个 repo；我们也非常希望你能提出宝贵的 issue、反馈和建议。
 - 🧪 **Dogfood sample added：** 这个 repo 现在包含一个紧凑的 dogfood sample，里面有修改前后 PDF 和人工核对过的 run report。
 
-## TODO
+## ✅ TODO
 
-- [x] **Codex plugin marketplace release.** 将 PaperJury 打包为可通过 Codex plugin marketplace 路线直接安装的版本，同时保留 legacy clone 安装。
-- [ ] **Fast mode / quick version.** 做一个低延迟、低 token 的快速检查路径；当你更想要有用的 triage，而不是完整 courtroom 深度时使用。
-- [ ] **Claude Code plugin marketplace release.** 将 Claude Code 版本打包到 Claude Code plugin marketplace，和原始 PaperJury repo 里的 clone 安装并行。
+- [x] 🔌 **Codex plugin marketplace release.** 将 PaperJury 打包为可通过 Codex plugin marketplace 路线直接安装的版本，同时保留 legacy clone 安装。
+- [ ] ⚡ **Fast mode / quick version.** 做一个低延迟、低 token 的快速检查路径；当你更想要有用的 triage，而不是完整 courtroom 深度时使用。
+- [ ] 🧩 **Claude Code plugin marketplace release.** 将 Claude Code 版本打包到 Claude Code plugin marketplace，和原始 PaperJury repo 里的 clone 安装并行。
 
 ---
 
