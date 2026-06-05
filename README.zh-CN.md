@@ -6,6 +6,7 @@
 
 <p align="center">
   <a href="https://u7079256.github.io/paperjury/overview.html?lang=zh"><img alt="打开在线交互式总览" src="https://img.shields.io/badge/在线交互式总览-d6a14b?style=for-the-badge&logo=githubpages&logoColor=white"></a>
+  <a href="https://github.com/u7079256/paperjury"><img alt="Claude Code 版本" src="https://img.shields.io/badge/Claude_Code_version-2b2d42?style=for-the-badge"></a>
   <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-3b3d47?style=for-the-badge">
 </p>
 
@@ -48,9 +49,9 @@ PaperJury 是投稿前的自查流程，不替代作者的科学判断，也不�
 
 ## 安装
 
-PaperJury Codex 已打包成 Codex plugin。Claude Code 版保留在原始 `paperjury`
-仓库：[paperjury](https://github.com/u7079256/paperjury)。这个仓库不携带也不执行
-Claude Workflow 文件。
+PaperJury Codex 已打包成 Codex plugin。Claude Code plugin 版本保留在原始
+`paperjury` 仓库：[paperjury](https://github.com/u7079256/paperjury)。这个仓库
+不携带也不执行 Claude Workflow 文件。
 
 ```powershell
 # 添加 PaperJury Codex plugin marketplace

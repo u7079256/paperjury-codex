@@ -6,6 +6,7 @@
 
 <p align="center">
   <a href="https://u7079256.github.io/paperjury/overview.html?lang=en"><img alt="Open the live interactive overview" src="https://img.shields.io/badge/Open_the_interactive_overview-d6a14b?style=for-the-badge&logo=githubpages&logoColor=white"></a>
+  <a href="https://github.com/u7079256/paperjury"><img alt="Claude Code version" src="https://img.shields.io/badge/Claude_Code_version-2b2d42?style=for-the-badge"></a>
   <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-3b3d47?style=for-the-badge">
 </p>
 
@@ -48,9 +49,9 @@ The intended use is to surface avoidable problems earlier, while you can still a
 
 ## Install
 
-PaperJury Codex is packaged as a Codex plugin. The Claude Code version lives in
-the original [paperjury](https://github.com/u7079256/paperjury) repository; this
-repository does not ship or execute Claude Workflow files.
+PaperJury Codex is packaged as a Codex plugin. The Claude Code plugin/version
+lives in the original [paperjury](https://github.com/u7079256/paperjury)
+repository; this repository does not ship or execute Claude Workflow files.
 
 ```powershell
 # Add the PaperJury Codex plugin marketplace.
