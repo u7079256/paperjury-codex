@@ -1,0 +1,40 @@
+{
+  "name": "paperjury-codex",
+  "version": "0.5.0",
+  "description": "Pre-submission AI review stress-test for research papers in Codex.",
+  "author": {
+    "name": "PaperJury contributors",
+    "url": "https://github.com/u7079256"
+  },
+  "homepage": "https://u7079256.github.io/paperjury/overview.html?lang=en",
+  "repository": "https://github.com/u7079256/paperjury-codex",
+  "license": "MIT",
+  "keywords": [
+    "paper-review",
+    "latex",
+    "research",
+    "pre-submission",
+    "codex",
+    "academic-writing"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "PaperJury Codex",
+    "shortDescription": "Run adversarial pre-submission review and guarded LaTeX revisions.",
+    "longDescription": "PaperJury Codex packages a pre-submission research-paper review workflow: direct LaTeX edits, multi-perspective mock review, deterministic ledgers, compile checks, and opt-in goal-driven review-revise loops.",
+    "developerName": "PaperJury contributors",
+    "category": "Research",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://u7079256.github.io/paperjury/overview.html?lang=en",
+    "defaultPrompt": [
+      "Use PaperJury to review my CS paper before submission.",
+      "Run a PaperJury compliance check on this LaTeX paper.",
+      "Polish this paper passage with PaperJury."
+    ],
+    "brandColor": "#3B3D47"
+  }
+}

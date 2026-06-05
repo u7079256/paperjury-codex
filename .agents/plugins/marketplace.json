@@ -1,0 +1,20 @@
+{
+  "name": "paperjury-codex",
+  "interface": {
+    "displayName": "PaperJury Codex"
+  },
+  "plugins": [
+    {
+      "name": "paperjury-codex",
+      "source": {
+        "source": "local",
+        "path": "./plugins/paperjury-codex"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Research"
+    }
+  ]
+}

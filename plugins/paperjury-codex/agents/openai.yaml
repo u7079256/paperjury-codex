@@ -1,0 +1,4 @@
+interface:
+  display_name: "PaperJury"
+  short_description: "Pre-submission paper review skill"
+  default_prompt: "Use $paperjury to review my CS paper before submission."
