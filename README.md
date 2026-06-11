@@ -41,7 +41,7 @@ Interactive overview: the [live site](https://u7079256.github.io/paperjury/overv
 - [x] 🔌 **Codex plugin marketplace release.** Package PaperJury for direct install through the Codex plugin marketplace route, alongside the legacy clone install.
 - [x] 🔔 **Soft update reminders.** Check for newer stable release tags at PaperJury startup and show a non-blocking update notice.
 - [ ] ⚡ **Fast mode / quick version.** A lower-latency, lower-token path for fast checks when you want useful triage more than full courtroom depth.
-- [ ] 🧩 **Claude Code plugin marketplace release.** Package the Claude Code version for direct install from the Claude Code plugin marketplace, alongside the clone install in the original PaperJury repo.
+- [x] 🧩 **Claude Code plugin marketplace release.** Package the Claude Code version for direct install from the Claude Code plugin marketplace, alongside the clone install in the original PaperJury repo.
 
 ---
 
