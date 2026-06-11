@@ -1,10 +1,15 @@
 [English](README.md) · **中文**
 
+<p align="center">
+  <img src="docs/paperjury-mark.svg" alt="PaperJury logo" width="96">
+</p>
+
 # PaperJury
 
 > 投稿前，先让 AI 陪审团审一遍。
 
 <p align="center">
+  <a href="https://u7079256.github.io/paperjury/paperjury-paper.pdf"><img alt="阅读论文（PDF）" src="https://img.shields.io/badge/论文-PDF-b31b1b?style=for-the-badge&logo=latex&logoColor=white"></a>
   <a href="https://u7079256.github.io/paperjury/overview.html?lang=zh"><img alt="打开在线交互式总览" src="https://img.shields.io/badge/在线交互式总览-d6a14b?style=for-the-badge&logo=githubpages&logoColor=white"></a>
   <a href="https://github.com/u7079256/paperjury"><img alt="Claude Code 版本" src="https://img.shields.io/badge/Claude_Code_version-2b2d42?style=for-the-badge"></a>
   <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-3b3d47?style=for-the-badge">
@@ -26,6 +31,7 @@ PaperJury Codex 是 Codex skill，支持三种模式：direct-edit、review、au
 
 ## 📰 News / 最新进展
 
+- 📄 **PaperJury 论文出炉。** preprint 在这里：[*PaperJury: Due-Process Review for Bounded LaTeX Revision*](https://u7079256.github.io/paperjury/paperjury-paper.pdf)——把整套「审稿 → 裁定 → 修改 → 复查」引擎完整写成了论文。
 - 🚀 **Codex plugin 已发布。** PaperJury Codex 现在已经支持通过 Codex plugin marketplace 路线安装。如果你对投稿前论文评审 workflow 感兴趣，欢迎 ⭐ star 这个 repo；我们也非常希望你能提出宝贵的 issue、反馈和建议。
 - 🔔 **v1.0 release：** Codex plugin 现在带有非阻塞更新提醒；如果发现更新的稳定 tag，会提示用户安装最新版。
 - 🧪 **Dogfood sample added：** 这个 repo 现在包含一个紧凑的 dogfood sample，里面有修改前后 PDF 和人工核对过的 run report。
