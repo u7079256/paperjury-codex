@@ -1,7 +1,7 @@
 [English](README.md) · **中文**
 
 <p align="center">
-  <img src="docs/paperjury-mark.svg" alt="PaperJury logo" width="96">
+  <img src="docs/paperjury-mark.png" alt="PaperJury logo" width="96">
 </p>
 
 # PaperJury
@@ -41,7 +41,7 @@ PaperJury Codex 是 Codex skill，支持三种模式：direct-edit、review、au
 - [x] 🔌 **Codex plugin marketplace release.** 将 PaperJury 打包为可通过 Codex plugin marketplace 路线直接安装的版本，同时保留 legacy clone 安装。
 - [x] 🔔 **Soft update reminders.** PaperJury 启动时检查更新的稳定 release tag，有新版时只提示，不阻塞 workflow。
 - [ ] ⚡ **Fast mode / quick version.** 做一个低延迟、低 token 的快速检查路径；当你更想要有用的 triage，而不是完整 courtroom 深度时使用。
-- [ ] 🧩 **Claude Code plugin marketplace release.** 将 Claude Code 版本打包到 Claude Code plugin marketplace，和原始 PaperJury repo 里的 clone 安装并行。
+- [x] 🧩 **Claude Code plugin marketplace release.** 将 Claude Code 版本打包到 Claude Code plugin marketplace，和原始 PaperJury repo 里的 clone 安装并行。
 
 ---
 
