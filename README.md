@@ -1,265 +1,238 @@
-**English** · [中文](README.zh-CN.md)
+**中文** · [English](README.en.md)
 
 <p align="center">
-  <img src="docs/paperjury-mark.png" alt="PaperJury logo" width="96">
+  <img src="docs/paperjury-mark.png" alt="PaperJury logo" width="120">
 </p>
 
-# PaperJury
+<h1 align="center">PaperJury Codex</h1>
 
-> A pre-submission AI review stress-test for research papers.
+<p align="center">投稿前，先让 AI 陪审团审一遍。</p>
 
 <p align="center">
-  <a href="https://u7079256.github.io/paperjury/paperjury-paper.pdf"><img alt="Read the paper (PDF)" src="https://img.shields.io/badge/Paper-PDF-b31b1b?style=for-the-badge&logo=latex&logoColor=white"></a>
-  <a href="https://u7079256.github.io/paperjury/overview.html?lang=en"><img alt="Open the live interactive overview" src="https://img.shields.io/badge/Open_the_interactive_overview-d6a14b?style=for-the-badge&logo=githubpages&logoColor=white"></a>
-  <a href="https://github.com/u7079256/paperjury"><img alt="Claude Code version" src="https://img.shields.io/badge/Claude_Code_version-2b2d42?style=for-the-badge"></a>
+  <a href="https://u7079256.github.io/paperjury/paperjury-paper.pdf"><img alt="阅读论文（PDF）" src="https://img.shields.io/badge/论文-PDF-b31b1b?style=for-the-badge&logo=latex&logoColor=white"></a>
+  <a href="https://u7079256.github.io/paperjury/overview.html?lang=zh"><img alt="打开在线交互式总览" src="https://img.shields.io/badge/在线交互式总览-d6a14b?style=for-the-badge&logo=githubpages&logoColor=white"></a>
+  <a href="https://github.com/u7079256/paperjury"><img alt="Claude Code 版本" src="https://img.shields.io/badge/Claude_Code_version-2b2d42?style=for-the-badge"></a>
+  <a href="https://github.com/u7079256/paperjury-codex/stargazers"><img alt="Star this repo" src="https://img.shields.io/badge/GitHub-Star-3b3d47?style=for-the-badge&logo=github&logoColor=white"></a>
+  <a href="https://github.com/u7079256/paperjury-codex/releases"><img alt="Open releases" src="https://img.shields.io/badge/Releases-Open-3b3d47?style=for-the-badge"></a>
   <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-3b3d47?style=for-the-badge">
 </p>
 
-*Before a reviewer tears it apart, let a jury do it first.*
+<p align="center">
+  <a href="https://u7079256.github.io/paperjury/overview.html?lang=zh"><img src="docs/overview-card.png" alt="PaperJury 交互式总览" width="760"></a>
+</p>
 
-PaperJury turns paper feedback into a closed loop: review → verdict → revise → verify. Instead of taking every AI suggestion at face value, it sorts each issue into one of three outcomes:
+**PaperJury Codex 是 PaperJury 的 Codex 版。** 它把投稿前自查做成一套闭环：**审稿 → 裁定 → 修改 → 复查**。你可以让它像 reviewer 一样挑问题，也可以让它安全地改一处 LaTeX / Markdown；真正落稿前，它会先把补丁交给你确认。
 
-- **Fixable**: safe, text-level issues that can be patched automatically.
-- **Author-required**: missing experiments, missing evidence, or research decisions that stay with you.
-- **Invalid**: reviewer misreadings or unsupported critiques that should not be applied.
+它不会照单全收 AI 反馈，而是先把每条意见分成三类：
 
-It offers three modes: direct-edit, review, and auto. PaperJury is built for pre-submission self-checking. It does not replace peer review, it does not invent missing experiments, and it keeps research-level decisions with the author.
+| 结果 | 含义 |
+|---|---|
+| **安全修复** | 表达不清、claim 过强、结构不顺这类文本层面的问题；不需要新实验，也不会让论断漂移。 |
+| **作者处理** | 缺实验、缺 ablation、缺数据或证据，必须由作者判断。 |
+| **不成立** | AI 评审误读了论文，或者提出了不该改的问题。 |
 
-Interactive overview: the [live site](https://u7079256.github.io/paperjury/overview.html?lang=en) (GitHub Pages), or [`docs/overview.html`](docs/overview.html) in-repo.
-
----
-
-## 📰 News
-
-- 📄 **The PaperJury paper is out.** Read the preprint: [*PaperJury: Due-Process Review for Bounded LaTeX Revision*](https://u7079256.github.io/paperjury/paperjury-paper.pdf) — the full review → verdict → revise → verify engine written up as a paper.
-- 🚀 **Codex plugin released.** PaperJury Codex is now packaged for the Codex plugin marketplace route. If you are interested in pre-submission paper review workflows, please ⭐ star this repo; we would also greatly appreciate issues, feedback, and suggestions.
-- 🔔 **v1.0 release:** the Codex plugin now includes a non-blocking update reminder that points users to the latest stable release when a newer tag exists.
-- 🧪 **Dogfood sample added:** this repo now includes a compact dogfood sample with before/after PDFs and a human-verified run report.
-
-## ✅ TODO
-
-- [x] 🔌 **Codex plugin marketplace release.** Package PaperJury for direct install through the Codex plugin marketplace route, alongside the legacy clone install.
-- [x] 🔔 **Soft update reminders.** Check for newer stable release tags at PaperJury startup and show a non-blocking update notice.
-- [ ] ⚡ **Fast mode / quick version.** A lower-latency, lower-token path for fast checks when you want useful triage more than full courtroom depth.
-- [x] 🧩 **Claude Code plugin marketplace release.** Package the Claude Code version for direct install from the Claude Code plugin marketplace, alongside the clone install in the original PaperJury repo.
+> [!IMPORTANT]
+> PaperJury 是投稿前的自查流程，**不替代作者的科学判断，也不替代 peer review**。它不能拿来编造实验、伪造结果、加上没有证据支撑的 claim，或者掩盖论文局限。遇到需要新实验、缺失证据、作者私有知识或研究层面判断的问题，它都会交回作者处理。
 
 ---
 
-## Responsible Use
+## 目录
 
-PaperJury is a pre-submission self-check workflow. It does not replace the author's scientific judgment, and it does not replace peer review. It should never be used to invent experiments, fabricate results, add unsupported claims, or hide a paper's limitations.
+- [快速上手](#快速上手)
+- [能帮你做什么](#能帮你做什么)
+- [三种模式](#三种模式)
+- [安装](#安装)
+- [Codex 版和 Claude Code 版](#codex-版和-claude-code-版)
+- [真实跑一遍](#真实跑一遍)
+- [引擎总览](#引擎总览)
+- [架构说明](#架构说明)
+- [Roadmap](#roadmap)
+- [致谢](#致谢)
 
-When an issue needs a new experiment, missing evidence, private knowledge, or a research-level decision, PaperJury routes it to the author instead of patching it automatically. The Fixable / Author-required / Invalid outcomes exist precisely so that judgment calls stay with you.
+<details>
+<summary><b>更新日志</b></summary>
 
-The intended use is to surface avoidable problems earlier, while you can still act on them: unclear claims, weak logical connections, unsupported wording, formatting risks, and the kind of reviewer-style concerns worth checking before submission.
+> **PaperJury 论文出炉。** preprint 在这里：[*PaperJury: Due-Process Review for Bounded LaTeX Revision*](https://u7079256.github.io/paperjury/paperjury-paper.pdf)。论文完整介绍了「审稿 → 裁定 → 修改 → 复查」引擎。
+>
+> **Codex plugin 已发布。** PaperJury Codex 支持通过 Codex plugin marketplace 路线安装，同时保留 legacy clone 安装。
+>
+> **v1.0 release。** Codex plugin 带有非阻塞更新提醒；发现更新的稳定 tag 时，只提示，不打断当前工作。
+>
+> **Dogfood sample 已加入。** 仓库里有修改前后 PDF 和人工核对过的运行报告。
+
+</details>
 
 ---
 
-## Install
+## 快速上手
 
-PaperJury Codex is packaged as a Codex plugin. The Claude Code plugin/version
-lives in the original [paperjury](https://github.com/u7079256/paperjury)
-repository; this repository does not ship or execute Claude Workflow files.
+先把 marketplace 加到 Codex：
 
 ```powershell
-# Latest channel: use the current main branch when installing or reinstalling.
+# Latest channel：安装或重新安装时使用当前 main 分支
 codex marketplace add u7079256/paperjury-codex
 
-# Stable pinned release: reproducible v1.0 install.
+# 稳定 pinned release：可复现的 v1.0 安装
 codex marketplace add u7079256/paperjury-codex@v1.0
 ```
 
-Then install **PaperJury Codex** from the Codex plugin UI. The plugin exposes the
-`paperjury` skill and ships its deterministic Node guards in the plugin package.
-`node` is required for deterministic checks; a LaTeX toolchain is optional
-because compile checks degrade honestly when it is absent.
+然后在 Codex plugin UI 里安装 **PaperJury Codex**。安装后可以直接在论文项目里说：
 
-At the start of a PaperJury run, the plugin performs a soft update check against
-stable GitHub release tags. If a newer tag exists, it prints the latest-channel
-and pinned-release install commands; if GitHub is unreachable, it stays silent
-and continues. Set `PAPERJURY_DISABLE_UPDATE_CHECK=1` to disable this reminder.
-After reinstalling or changing release channels, start a new Codex thread so the
-updated skill content is loaded.
+```text
+审稿，重点看实验设计、claim 强度和格式风险。
+```
 
-If your Codex surface does not yet expose plugin installation, the legacy skill
-install still works:
+或者：
+
+```text
+把这段 intro 改紧一些，但不要改变原来的 claim。
+```
+
+插件会暴露 `paperjury` skill，确定性 Node guards 也随插件一起安装。`node` 是必需的；LaTeX 工具链可选，有工具链时会真实编译，没有时会明确降级。
+
+## 能帮你做什么
+
+| 场景 | PaperJury Codex 会怎么做 |
+|---|---|
+| **投稿前挑问题** | 让多个领域评审通读全文，找出真正可能被 reviewer 抓住的弱点，并把致命问题和小修小补分开。 |
+| **安全改 LaTeX / Markdown** | 对你指定的一处改动直接起草补丁，自检后再交给你确认；不会把一处安全修改扩成整篇重写。 |
+| **复查格式风险** | 本机有 LaTeX 工具链时真实编译，检查真实报错、未定义引用、overfull box、页数和常见 desk-reject 风险；没有工具链时会明确降级。 |
+| **多轮打磨** | 在明确授权的 auto 模式下，多轮运行「评审-修订-复查」闭环；安全修改自动应用，高风险改动放进队列，等你回来处理。 |
+
+## 三种模式
+
+| 模式 | 什么时候用 | 行为 | 人工关卡 |
+|---|---|---|---|
+| **direct-edit**（常用） | 你只想改一处文字、caption、LaTeX 表达或段落结构。 | 不开评审面板，直接用写作工具包起草补丁。 | 作者确认后应用。 |
+| **review**（偶尔） | 你想让它审稿、挑问题、mock-review，或只审某一节 / 某条 claim。 | 启动对抗式评审引擎，先裁定问题是否成立，再进入修改。 | 每处改动逐一确认。 |
+| **auto**（无人值守） | 你明确给出 Codex goal 或配置 `mode: auto`，希望它多轮跑到一个可验证目标。 | 先确认 `spine` 和评审分配，再按 bounded-aggressive + edit-safety 策略迭代。 | 前置整体授权 + 返回队列。 |
+
+简单说：**改一处 → 直接说；想被挑刺 → 说「审稿」；想无人值守 → 给它一个 Codex goal。**
+
+> [!WARNING]
+> **auto 绝不会被自动检测，只能显式开启。** 只打开工具权限再发普通 prompt，只会跑一轮就停，不会进入多轮循环。原因见 [`codex/AGENT-GUIDE.md`](codex/AGENT-GUIDE.md)。
+
+## 安装
+
+### Plugin marketplace
+
+```powershell
+codex marketplace add u7079256/paperjury-codex
+```
+
+然后在 Codex plugin UI 里安装 **PaperJury Codex**。
+
+稳定 pinned release：
+
+```powershell
+codex marketplace add u7079256/paperjury-codex@v1.0
+```
+
+每次 PaperJury workflow 开始时，插件会对 GitHub 稳定 release tag 做一次软更新检查。如果发现新版，它会给出 latest channel 和 pinned release 的安装命令；如果 GitHub 不可达，它会静默继续。设置 `PAPERJURY_DISABLE_UPDATE_CHECK=1` 可以关闭提醒。重新安装或切换 release channel 后，建议新开一个 Codex thread，让新版 skill 内容重新加载。
+
+### Legacy skill 安装
+
+如果当前 Codex 界面还没有 plugin 安装入口，可以 clone 成 skill：
 
 ```powershell
 git clone https://github.com/u7079256/paperjury-codex "$env:USERPROFILE\.codex\skills\paperjury"
 ```
 
-**For Codex / coding agents:** read [`codex/AGENT-GUIDE.md`](codex/AGENT-GUIDE.md)
-and [`codex/runtime.md`](codex/runtime.md), then use
-[`codex/phase-contracts.md`](codex/phase-contracts.md) for
-phase inputs, outputs, isolation, and validation.
+**给 Codex / 编码 agent：** 先读 [`codex/AGENT-GUIDE.md`](codex/AGENT-GUIDE.md) 和 [`codex/runtime.md`](codex/runtime.md)，再用 [`codex/phase-contracts.md`](codex/phase-contracts.md) 确定各阶段输入、输出、隔离和校验规则。Codex 版通过显式授权的 subagent fan-out 运行这套流程。
 
----
+## Codex 版和 Claude Code 版
 
-## What you get
+| 版本 | 入口 | 差异 |
+|---|---|---|
+| **Codex 版** | 本仓库；Codex plugin 或 `.codex/skills/` | 语义阶段由显式授权的 Codex subagents 运行；阶段契约写在 `codex/phase-contracts.md`；确定性 guards 由 orchestrator 侧经 Node 运行。 |
+| **Claude Code 版** | [paperjury](https://github.com/u7079256/paperjury) | 使用 Claude Code skill / plugin 路线；语义 fan-out 由 Claude Workflow 文件驱动。 |
 
-Most writing tools only push your paper forward: they draft and they polish. None of them argues the other side of your claims the way a reviewer will. PaperJury is built around that gap, in four parts.
+两个版本共享同一套方法论：bounded review、issue ledger、recall audit、edit-safety、compile guard 和 submission-readiness。Codex 版不携带也不执行 Claude Workflow 文件。
 
-- **Adversarial by construction.** Your paper gets due process, not one pass of suggestions: N domain reviewers read the whole paper, a contestability router sends the real disputes to a two-sided trial, a jury of 5 (escalating to 12 only when it cannot reach a clear majority) deliberates under isolation, and a judge returns one of three verdicts: fix it, needs you, or no fix. A verdict can land "no fix", which a yes-and rewriter structurally cannot return.
-- **Closed-loop, not forward-only.** Each round is a clean re-review of the edited paper (the panel never sees the prior ledger, so a re-raised issue is real corroboration, not anchoring), and a deterministic clerk reconciles every round into one ledger until a clean round surfaces nothing new. Before any edit, fresh skeptics try to revive whatever got wrongly dropped and stress-test strong-consensus verdicts.
-- **Guardrails, not autopilot.** Safe fixes land under risk-proportional safety (frozen anchors, a per-passage edit cap, an anchor and cross-section meaning audit), always behind your sign-off. Risky edits are not applied silently; they queue for one human pass.
-- **Real compile, not just critique.** It runs an actual LaTeX build on your machine and reports true errors, undefined refs, overfull boxes, and the page count, or degrades honestly to a structural lint when no toolchain is present. Deterministic desk-reject checks catch the classics: anonymization leaks, margin and spacing hacks, documentclass drift, missing required sections, and page-limit overflow, checked against your project's own constraints.
+## 真实跑一遍
 
----
+仓库里有一个 dogfood sample：在一篇真实草稿上跑完整多轮评审，附**修改前后 PDF** 和一份**人工核对过的运行报告**。
 
-## Three modes
+[`samples/dogfood/`](samples/dogfood/)（[`original_draft.pdf`](samples/dogfood/original_draft.pdf) · [`revised_draft.pdf`](samples/dogfood/revised_draft.pdf) · [运行报告](samples/dogfood/RUN_REPORT.zh-CN.md)）
 
-### Direct-Edit (common)
+如果只想确认稿件不会先被格式问题挡住，可以说：
 
-- **Trigger:** describe a change in Chinese or English and have the LaTeX edited directly.
-- **Example utterances:** "把这段改成…", "polish this paragraph", "把我对 intro 的想法写成 LaTeX", "tighten this".
-- **Behavior:** no review panel; go straight to drafting the patch through the writing toolkit, with author sign-off.
+```text
+跑一下 submission-readiness / 合规检查。
+```
 
-### Review (occasional)
+它会做确定性格式筛查，再配合编译驱动的版面检查。
 
-- **Trigger:** ask for the paper to be critiqued or hardened: review / critique / 审稿 / 评审 / mock-review, or iterating a draft to clear reviewer-raised issues.
-- **Behavior:** runs the courtroom review engine (`references/review-engine-v3.md`).
-- **Scope sub-trigger:** `full` (whole paper) or `passage` (one section / paragraph / claim).
+## 引擎总览
 
-### Auto (unattended)
+引擎把审稿流程组织成一套「庭审」：评审数量有边界，争议问题会分流审议，编辑按风险加护栏，多轮循环由确定性书记官判定是否收敛。
 
-- **Trigger (explicit only):** opt in via `/goal` (or config `mode: auto`) to run the review-revise loop unattended toward a verifiable goal.
-- **Hard constraint:** **auto is never self-detected; it is explicit only.** There is no runtime signal for it, so it is entered only via a `/goal` context or a project config `mode: auto`.
-- **Behavior:** establish the `spine` and the reviewer assignment up front (the human steps), then the engine applies safe fixes under the bounded-aggressive + edit-safety policy, queues the rest, and runs multiple rounds until it stops: on clerk convergence, or an applied-quiescence / hard-limit backstop. See `references/auto-mode.md`.
+```text
+assign-reviewers → reading-check → coverage-auditor → merge
+  → { trial ‖ polish } → recall-audit → drafter
+  → { edit-audit | meaning-audit } → clerk
+```
 
----
+### 确定性步骤
 
-## Usage examples: what to do when
+1. **读稿分解**：把手稿切成阅读单元、规范段落列表和稳定段落编号，防止问题锚点漂移。
+2. **核心声明**（仅 auto 模式）：提取核心声明，获得作者确认，冻结为配置。
+3. **账本**：活跃问题状态的机器可读源，跨轮次、跨会话持久化。只要没有仍在阻断 gate 的活跃 major，就视为完成；author-required 不阻断 gate，而是进入人工队列。
+4. **日志**：编辑历史只追加记录，支持回滚。
+5. **补丁应用**：原子性应用编辑，记录日志，支持恢复。
+6. **锚点追踪**：定位已冻结的核心声明；上下文变动时，标出需要重新审计的部分。
+7. **交叉引用检查**：编辑安全性预筛，检查改动关键词是否也出现在其他位置；如果出现，标记为需要语义审计。
+8. **编译检查**：尝试真实 LaTeX 编译；无法编译时降级到结构检查，并明确报告不可验证。
+9. **提交合规检查**：确定性的案前筛查。
 
-You don't run commands; you say what you want and the skill picks the mode.
+### 语义步骤
 
-**Edit one thing (the everyday case → direct-edit):**
-- "Polish this paragraph." / "把这段 intro 改紧一些。"
-- "Turn my Chinese note for the intro into LaTeX: `<your idea>`."
-- "De-AI this paragraph." / "Compress this sentence to one line." / "Rewrite this caption."
-- → it drafts the LaTeX change, self-checks it, shows you the patch, and applies it after you approve. No panel.
+1. **评审员分配**：根据论文研究方向，实例化 N 个领域评审者。
+2. **完整阅读检查**：每位 holistic reviewer 通读全文一遍，列出弱点、逐字引文、总体置信度和按节覆盖报告；引不出原文，就视为没有真读。
+3. **覆盖审计**：检查哪些 reviewer / section 组合可能被略读。
+4. **去重**：合并重复评论，确定性导出重要性、问题类别和交叉确认。
+5. **审议（trial）**：对有争议的问题开庭。先由 5 人审议，必要时升到 12 人；法官把成立的问题路由为 `valid-fixable` 或 `author-required`。
+6. **润色**：快路径处理机械性问题和轻微问题；如判断错误，升级回审议。
+7. **召回审计（recall）**：救回被误丢的问题，并在落稿前抽检强共识 major，防止集体误判。
+8. **编辑起草**：对确认的可修复问题起草最小改动。
+9. **编辑审计 / 含义审计**：检查高风险非锚改动、跨节一致性、冻结锚点和论证弧。
+10. **书记官**：汇总本轮结果，合并重复项，整理残留问题，并确定性判定是否收敛。
 
-**Get the paper critiqued before submission (→ review):**
-- "Review my paper." / "审稿。" / "Mock-review this before I submit."
-- "Critique just Section 3.2." / "review passage `<the claim you paste>`."
-- "Here are the issues a reviewer raised; iterate the draft to clear them."
-- → it runs the adversarial engine, surfaces the real weaknesses (separating fatal flaws from nits), and walks you through each: you give direction, it drafts fixes you authorize. Nothing changes without your sign-off.
+也支持简化的 3 人评审小组，作为快速路径。
 
-**Harden it unattended toward a goal (→ auto, needs `/goal`):**
-- `/goal "harden the paper until ledger.js gate passes (0 gate-blocking major)"`
-- → it runs the review-revise loop across many rounds on its own, applying safe fixes and queueing risky ones for one pass when you return. This needs an explicit Codex goal or equivalent multi-turn driver: turning on tool permission and sending a normal prompt runs one round and stops, it does not loop (see [`codex/AGENT-GUIDE.md`](codex/AGENT-GUIDE.md)).
+## 架构说明
 
-**Make sure it won't get desk-rejected:**
-- "Run the submission-readiness / compliance check." → deterministic format screening + a compile-driven layout check.
-
-Rule of thumb: **one change → just say it; want it picked apart → say "review"; want it run unattended → `/goal`.**
-
----
-
-## Engine overview
-
-The courtroom engine is `assign-reviewers → reading-check → coverage-auditor → merge → {trial ‖ polish} → recall-audit → drafter → {edit-audit | meaning-audit} → clerk`. Generation is bounded (N holistic domain reviewers, not a per-(unit × lens) flood); adjudication is routed by contestability; edits are guarded by risk; the multi-round loop converges via a deterministic clerk. The **deterministic guards in `scripts/`** run orchestrator-side via Node between semantic calls.
-
-### Deterministic stages (orchestrator-side, Node via Bash)
-
-1. `decompose`: split manuscript into reading units, the canonical section list, and stable `passage-id`s (which prevent text drift and give jurors local context).
-2. `spine` (auto only): extract anchors, author confirm, freeze → `spine.json`.
-3. `ledger.js`: JSON ledger plus MD view; **gate = `/goal` completion fact** (0 gate-blocking active major; author-required is gate-OK and accumulates to the human queue). CLI: init/add/set/count/gate/get/docket/unadjudicated/render.
-4. `journal.js`: append-only per-edit revert log (JSONL).
-5. `apply-patch.js`: atomic apply plus journal of a drafted patch, and revert (exact-once guard on `before` text).
-6. `anchor-diff.js`: locate frozen anchors; flag which `need_audit` when the support region changed.
-7. `cross-ref.js`: edit-safety risk pre-filter: does a changed salient token in a patch appear in other passages?
-8. `compile-guard.js`: real LaTeX compile (latexmk/pdflatex) or a degraded structural-lint path with `compiled:null` (it reports when it cannot verify).
-9. `compliance-check.js`: submission-readiness A: deterministic desk-reject screening.
-
-### Semantic stages (fan-out)
-
-1. `assign-reviewers`: name N subfields, instantiate N domain reviewers from the project gatekeeper core + a generated domain overlay; config-pin / verifier / per-slot degrade headless.
-2. `reading-check`: N holistic reviewers each read the WHOLE paper once → weaknesses (significance + kind + verbatim quote; a reviewer that cannot quote the source did not read it) + one overall_confidence + a per-section coverage report; targeted re-invoke mode for anti-skim.
-3. `coverage-auditor`: anti-skim L2: flag skimmed (reviewer, section) pairs across the coverage reports.
-4. `merge`: semantic dedup across reviewers; the orchestrator derives significance (MAX) / kind (substantive-dominates) / corroboration deterministically after semantic clustering.
-5. `trial`: a 5-juror trial tier: whole-paper defense → independent local-context jury (with on-demand context expansion) → a deterministic majority verdict (quorum reached, one side >60%) + a judge that routes a decided-valid charge (valid-fixable vs author-required); escalate to a 12-juror tier only on no clear majority.
-6. `polish`: the track that skips the jury: batch copy-edit (mechanical) + batch light-check (minor-substantive); can escalate a misrouted major back to trial.
-7. `recall-audit`: Mode A revives wrongly-dropped charges (bias to revive); Mode B spot-checks strong-consensus majors before the edit (guards against the whole panel agreeing on the same mistake).
-8. `drafter`: minimal-edit patch for valid-fixable charges.
-9. `edit-audit` / `meaning-audit`: the edit-safety semantic half: `edit-audit` checks a risky non-anchor edit (make-sense + cross-section alignment); `meaning-audit` is the four-state frozen-anchor + arc audit.
-10. `clerk`: the round boundary: reconcile carried open-questions against this round's edits, dedup re-raises via a deterministic passage_id + similarity merge key, and emit the deterministic convergence counts.
-
-Also present in the Codex contracts: a quick simple 3-lens `review-panel` fast path.
-
----
-
-## The three primitives: Skill + Fan-out + Memory
-
-1. **Skill (entry point + methodology):** the protocol, the reviewer assignment, the consensus gate, the writing toolkit, the human gates. Detail in `references/review-engine-v3.md`, `references/reviewer-personas.md`, `references/writing-toolkit.md`.
-
-2. **Semantic fan-out engine:** the semantic no-human-in-the-middle steps run through explicitly authorized Codex subagents, using `codex/phase-contracts.md` as the prompt/schema/isolation contract. Simple panel = the `review-panel` fast path; the courtroom engine = `assign-reviewers → reading-check → coverage-auditor → merge → {trial ‖ polish} → recall-audit → drafter → {edit-audit | meaning-audit} → clerk`. The deterministic guards run orchestrator-side via Node: `scripts/` holds `decompose`, `ledger`, `journal`, `apply-patch`, `anchor-diff`, `cross-ref`, `spine`, `compile-guard`, `compliance-check`.
-
-3. **Memory (durable state + learned conventions), two layers:**
-   - **Ledger**: `LEDGER.json` resolved at runtime = the machine source of truth, plus a rendered `LEDGER.md` view; managed by `scripts/ledger.js`. The live, mutable issue state across rounds and sessions. Schema plus status state machine: `references/ledger-schema.md`.
-   - **Project conventions / host memory**: stable conventions worth recalling next session (this paper's house style, venue, persona tuning).
-
-### Reviewers
-
-The panel is N domain-expert HOLISTIC reviewers (default 3, range 2-4), assigned at runtime to the paper's subfields, all sharing a senior-reviewer gatekeeper core (harsh, precise, constructive; separate fatal flaws from fixable nits; reason across sections). When a reviewer slot cannot be confirmed (headless, unverifiable), that slot degrades to a generic gatekeeper (one bad slot never degrades the whole panel); the generic fallback lenses are:
-
-- **Theory / Foundations**: definitions, proof gaps, notation, invariance/optimality/generality claims.
-- **Empirical / Benchmark**: baseline fairness/vintage, metric correctness, dataset splits, variance, ablation coverage, cherry-picking.
-- **Applied / Systems**: practicality, efficiency/latency/memory claims, reproducibility, deployment realism, scaling.
-
-(These are an unordered tendency, not fixed slots; reviewer IDs `R1..RN` are positional, assigned by subfield order.)
-
-The writing toolkit names (prompt bodies not shown here): `translate-to-english`, `polish-english`, `de-ai`, `compress`, `expand`, `caption`, `experiment-analysis`, `logic-check`.
-
----
-
-## The six hard rules
-
-1. **Never edit the manuscript without explicit author sign-off.** Auto-mode carve-out: the rule HOLDS; auto satisfies it via UP-FRONT sign-off (the `spine` + reviewer-assignment confirmation plus the pre-authorized bounded-aggressive policy) plus the return queue, not per-edit sign-off.
-2. **Reviewers / jurors are isolated.** Fresh eyes per round: no cross-talk, no prior-round leakage, no sight of the `ledger`. Enforced by (a) what goes into each agent's prompt AND (b) an explicit ISOLATION instruction in every reviewer-type prompt.
-3. **Every valid-fixable issue carries a `close_criterion`** (one concrete sentence describing what an edit must satisfy), set by the judge.
-4. **No leakage into the reviewed text.** Revision logs, back-translations, and self-check verdicts are author-side aids; they never enter the manuscript or any frozen snapshot.
-5. **Disagreement resolves through discussion, then override (logged), never a silent dismissal.**
-6. **No hardcoded paths or project files in the skill.** Resolve at runtime.
-
----
-
-## Architecture notes
-
-- Codex does not execute Claude Workflow files. Semantic phases are defined in `codex/phase-contracts.md`; deterministic guards run orchestrator-side via Node.
-- `compile-guard.js` is explicit about what it cannot verify: when it cannot truly compile, it degrades to structural lint and reports `compiled:null`.
-- Submission-readiness is cross-mode, two parts: **A** = `compliance-check.js` plus a semantic agent; **B** = a compile-driven layout loop reusing `compile-guard.js` plus Read-on-PDF.
-
-Your project files, ledger, journal, and patches stay inside your local paper project. PaperJury has no backend or server of its own, so nothing is sent to a PaperJury server. The review runs through your own Codex session, which means the model itself may run in the cloud: how your content is handled there follows the terms and settings of that host environment, not anything PaperJury adds on top.
-
----
+- Codex 不执行 Claude Workflow 文件。语义阶段定义在 `codex/phase-contracts.md`；确定性 guards 由 orchestrator 侧经 Node 运行。
+- `compile-guard.js` 对不可验证性保持诚实：无法真正编译时，降级到结构 lint，并报告 `compiled:null`。
+- 提交就绪检查跨模式，分两部分：A = `compliance-check.js` + 一个语义 agent；B = 复用 `compile-guard.js` 的编译驱动版面循环，配合对 PDF 的 Read。
+- 你的项目文件、ledger、journal 和 patch 都留在本地论文项目里。PaperJury 没有自己的后端或服务器，所以不会有任何东西发到 PaperJury 的服务器。审稿走的是你自己的 Codex session；模型本身仍可能跑在云端，内容到了那边怎么处理，跟随宿主环境的条款和设置，PaperJury 不会再加一层。
 
 ## Roadmap
 
-Where this is going (planned, not yet shipped):
+- [x] **Codex plugin marketplace release。** 将 PaperJury 打包为可通过 Codex plugin marketplace 路线直接安装的版本，同时保留 legacy clone 安装。
+- [x] **软更新提醒。** 启动时检查有没有更新的稳定版 tag，有就给一条非阻塞提示。
+- [ ] **快速版本 / quick mode。** 一条等待更短、更省 token 的快速路径；不追求完整庭审深度，先给可用的快速 triage。
+- [ ] **按不同会议 community 的 taste 调整评审人格。** CVPR、ACL、NeurIPS 的 reviewer 挑刺口味并不一样；目标是让评审更贴近各自社区的预期。
+- [ ] **基于视觉的版面校验。** 编译、渲染、再检查版面，不只看编译日志。
+- [ ] **从 `.cls` / 模板自动识别 venue。**
+- [ ] **用更多真实论文做规模化验证。**
 
-- **Reviewer personas tuned to each venue community's taste.** CVPR, ACL, and NeurIPS reviewers do not critique the same way; the goal is a reviewer that carries each community's expectations, beyond the current three-family style context.
-- **Vision-based layout verification**: compile, render, and check the visual layout (column overflow, figure placement), not just the compile log.
-- **Automatic venue detection** from your `.cls` / template.
-- **Validation of the engine on real papers at scale.**
+<details>
+<summary><b>文件与路径速查</b></summary>
 
----
+- 引擎协议：`references/review-engine-v3.md`
+- Codex 运行时映射：`codex/runtime.md`
+- Codex 语义阶段契约：`codex/phase-contracts.md`
+- 自动模式：`references/auto-mode.md`
+- 评审者角色、编辑工具：`references/reviewer-personas.md`、`references/writing-toolkit.md`
+- 账本结构和状态：`references/ledger-schema.md`
+- 提交合规：`references/submission-compliance.md`
+- Codex runtime / agent 说明：`codex/AGENT-GUIDE.md`
+- 脚本：`scripts/`
+- Codex 运行包：`codex/`
 
-## File and path reference
+</details>
 
-- Engine protocol (every orchestrator seam): `references/review-engine-v3.md`
-- Codex runtime mapping: `codex/runtime.md`
-- Codex semantic phase contracts: `codex/phase-contracts.md`
-- Auto protocol: `references/auto-mode.md`
-- Personas / writing toolkit: `references/reviewer-personas.md`, `references/writing-toolkit.md`
-- Ledger schema + status machine: `references/ledger-schema.md`
-- Submission compliance: `references/submission-compliance.md`
-- Codex runtime guide: `codex/AGENT-GUIDE.md`
-- Codex agent guide: `codex/AGENT-GUIDE.md`
-- Scripts dir: `scripts/` (decompose, ledger, journal, apply-patch, anchor-diff, cross-ref, spine, compile-guard, compliance-check)
-- Codex runtime package: `codex/`
+## 致谢
 
----
-
-## Credits
-
-The spine and anti-drift design (the anchor logic-transfer audit, the claim register, and the minimal-edit, intent-preserving revision policy) is inspired by [PaperSpine](https://github.com/WUBING2023/PaperSpine), a motivation-driven paper drafting and rewriting skill. PaperSpine is a forward generate/rewrite tool with no adversarial loop; PaperJury borrows its anchoring idea and its "deterministic scripts for checkable steps, model agents for judgment" mechanism, then adds the adversarial courtroom review engine on top.
+spine 与防漂移设计（anchor logic-transfer audit、claim register、minimal-edit 且保义的改写策略）受 [PaperSpine](https://github.com/WUBING2023/PaperSpine) 启发。PaperSpine 是 motivation-driven 的论文起草与改写 skill，偏 forward generate/rewrite；PaperJury 借用它的 anchoring 思路，以及「可检查步骤交给确定性脚本、判断交给 model agent」这一机制，再在其上加了对抗式庭审 review 引擎。
