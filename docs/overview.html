@@ -5,19 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PaperJury · 投稿前的 AI 审稿压力测试 · 工作流总览</title>
 <meta name="description" content="PaperJury：面向 CS 会议论文的投稿前 AI 审稿压力测试。把审稿、裁定、修改、复查做成闭环：能安全改的交给补丁流程，缺实验或证据的交给作者，不成立的意见直接驳回。">
-<meta name="color-scheme" content="dark">
-<meta name="theme-color" content="#0e0f13">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0e0f13" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5efe4" media="(prefers-color-scheme: light)">
 <meta property="og:type" content="website">
 <meta property="og:title" content="PaperJury · AI paper review stress test">
 <meta property="og:description" content="A closed-loop review–judge–revise workflow for pre-submission paper checks.">
-<!-- GH Pages social card. Regenerate overview-card.png via: msedge --headless=new --window-size=1200,630 --screenshot of overview.html?lang=en -->
+<!-- GH Pages social card. Regenerate overview-card-dark.png and overview-card-light.png via: msedge --headless=new --window-size=1200,630 --screenshot of overview.html?lang=zh&theme=dark/light -->
 <meta property="og:image" content="https://u7079256.github.io/paperjury/overview-card.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="PaperJury · AI paper review stress test">
 <meta name="twitter:description" content="A closed-loop review–judge–revise workflow for pre-submission paper checks.">
 <meta name="twitter:image" content="https://u7079256.github.io/paperjury/overview-card.png">
 <link rel="icon" type="image/png" href="paperjury-favicon.png">
-<script>(function(){var d=document.documentElement;d.className+=' js';var lang=null;try{var m=(location.search||'').match(/[?&]lang=(en|zh)/i);if(m){lang=m[1].toLowerCase();}else{var s=localStorage.getItem('prl-lang');if(s==='en'||s==='zh')lang=s;}}catch(e){}if(lang){d.setAttribute('data-lang',lang);d.setAttribute('lang',lang);try{localStorage.setItem('prl-lang',lang);}catch(e){}}})();</script>
+<script>(function(){var d=document.documentElement;d.className+=' js';var search=location.search||'';var lang=null,forcedTheme=null;try{var m=search.match(/[?&]lang=(en|zh)/i);if(m){lang=m[1].toLowerCase();}else{var s=localStorage.getItem('prl-lang');if(s==='en'||s==='zh')lang=s;}var t=search.match(/[?&]theme=(dark|light)/i);if(t)forcedTheme=t[1].toLowerCase();}catch(e){}if(lang){d.setAttribute('data-lang',lang);d.setAttribute('lang',lang);try{localStorage.setItem('prl-lang',lang);}catch(e){}}function setTheme(v){if(v==='light'||v==='dark')d.setAttribute('data-theme',v);}if(forcedTheme){setTheme(forcedTheme);}else{try{var q=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)');if(q){var sync=function(e){setTheme(e.matches?'light':'dark')};sync(q);if(q.addEventListener)q.addEventListener('change',sync);else if(q.addListener)q.addListener(sync);}else{setTheme('dark');}}catch(e){setTheme('dark');}}})();</script>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Serif+SC:wght@600;900&family=Noto+Sans+SC:wght@400;700&display=swap');
 
@@ -295,6 +296,93 @@
   .stamp.author{color:#f2c277;border-color:rgba(232,163,61,.55)}
   .stamp.drop{color:#f0938c;border-color:rgba(229,103,95,.55)}
   .docket .cap2{padding:8px 14px;color:var(--faint);font-size:10.5px}
+
+  /* Light theme. Dark remains the default for old browsers and social previews. */
+  :root[data-theme="light"]{
+    --bg:#f5efe4; --bg2:#ede2d1;
+    --paper:#fffaf1; --paper2:#f3eadb; --raise:#eadcc7;
+    --ink:#241f18; --muted:#665d50; --faint:#8b8172;
+    --line:#ded0bc; --line2:#cbb89e;
+    --seal:#9a641e;
+    --wf:#2468c9; --human:#a95f0b; --mem:#1f7a4c; --det:#68707d; --agent:#7150aa; --danger:#b7443e;
+  }
+  :root[data-theme="light"] body::before{
+    background:
+      linear-gradient(90deg,rgba(154,100,30,.09),transparent 36%,transparent 64%,rgba(36,104,201,.07)),
+      repeating-linear-gradient(0deg,transparent 0 31px,rgba(74,56,33,.055) 32px),
+      repeating-linear-gradient(90deg,transparent 0 39px,rgba(74,56,33,.04) 40px);
+    opacity:.86}
+  :root[data-theme="light"] body::after{background:linear-gradient(180deg,rgba(255,250,241,.1),rgba(237,226,209,.68))}
+  :root[data-theme="light"] nav.bar{background:rgba(245,239,228,.88);border-bottom-color:rgba(154,100,30,.24)}
+  :root[data-theme="light"] nav.bar a:hover,
+  :root[data-theme="light"] nav.bar a.active,
+  :root[data-theme="light"] nav.bar .langbtn{box-shadow:0 1px 0 rgba(255,255,255,.62) inset}
+  :root[data-theme="light"] nav.bar .langbtn:hover,
+  :root[data-theme="light"] .runbtn:hover,
+  :root[data-theme="light"] .news-actions a:hover{color:#7b4f17;background:var(--paper);border-color:var(--seal)}
+  :root[data-theme="light"] .news-card{
+    border-color:rgba(154,100,30,.45);
+    background:
+      linear-gradient(90deg,rgba(154,100,30,.14),rgba(255,250,241,.97) 36%,rgba(36,104,201,.09)),
+      repeating-linear-gradient(135deg,rgba(154,100,30,.08) 0 1px,transparent 1px 13px);
+    box-shadow:0 18px 48px rgba(89,65,34,.14),0 0 28px rgba(154,100,30,.08)}
+  :root[data-theme="light"] .news-card.old{box-shadow:0 12px 30px rgba(89,65,34,.11)}
+  :root[data-theme="light"] .news-card::after{color:rgba(122,79,23,.38)}
+  :root[data-theme="light"] .news-date,
+  :root[data-theme="light"] .hint b,
+  :root[data-theme="light"] .pill.seal,
+  :root[data-theme="light"] .runbtn.primary,
+  :root[data-theme="light"] .cap b,
+  :root[data-theme="light"] .seat.judge .role,
+  :root[data-theme="light"] .seat.appeal .role,
+  :root[data-theme="light"] .todo-copy b{color:#7b4f17}
+  :root[data-theme="light"] .hero-visual{
+    background:linear-gradient(180deg,rgba(154,100,30,.1),rgba(255,250,241,.96));
+    box-shadow:0 22px 52px rgba(89,65,34,.16)}
+  :root[data-theme="light"] .verdict-row{background:rgba(255,250,241,.74)}
+  :root[data-theme="light"] .pill.live{color:#1f6d47}
+  :root[data-theme="light"] .tag.wf{background:rgba(36,104,201,.1);color:#1f58ad;border-color:rgba(36,104,201,.32)}
+  :root[data-theme="light"] .tag.human{background:rgba(169,95,11,.1);color:#874b08;border-color:rgba(169,95,11,.32)}
+  :root[data-theme="light"] .tag.mem{background:rgba(31,122,76,.1);color:#1f6d47;border-color:rgba(31,122,76,.32)}
+  :root[data-theme="light"] .tag.det{background:rgba(104,112,125,.12);color:#555d6a;border-color:rgba(104,112,125,.32)}
+  :root[data-theme="light"] .mode,
+  :root[data-theme="light"] .todo-card{background:linear-gradient(180deg,rgba(255,255,255,.58),var(--paper))}
+  :root[data-theme="light"] .mode .ok,
+  :root[data-theme="light"] .keep{color:#1f6d47;background:rgba(31,122,76,.08);border-color:rgba(31,122,76,.3)}
+  :root[data-theme="light"] .core,
+  :root[data-theme="light"] .caption{background:linear-gradient(180deg,rgba(154,100,30,.08),var(--paper))}
+  :root[data-theme="light"] .flowtoken{color:#fffaf1;box-shadow:0 0 14px rgba(154,100,30,.38)}
+  :root[data-theme="light"] .node.active .box,
+  :root[data-theme="light"] .seat.lit{box-shadow:0 8px 24px rgba(154,100,30,.18)}
+  :root[data-theme="light"] .court{background:linear-gradient(180deg,rgba(154,100,30,.08),transparent 42%),var(--bg2)}
+  :root[data-theme="light"] .seat.judge{background:linear-gradient(180deg,rgba(154,100,30,.1),var(--paper))}
+  :root[data-theme="light"] .seat.pros .role,
+  :root[data-theme="light"] .seat.recall .role,
+  :root[data-theme="light"] table.roster td .warn,
+  :root[data-theme="light"] .rule b{color:#9e3b36}
+  :root[data-theme="light"] .seat.def .role,
+  :root[data-theme="light"] .formula .mono,
+  :root[data-theme="light"] footer a{color:#245ead}
+  :root[data-theme="light"] .jurybox{background:rgba(113,80,170,.07)}
+  :root[data-theme="light"] .jurybox .cap-j,
+  :root[data-theme="light"] .j,
+  :root[data-theme="light"] .side.neu,
+  :root[data-theme="light"] .ac b{color:#5f4392}
+  :root[data-theme="light"] .j{background:rgba(113,80,170,.1);border-color:rgba(113,80,170,.26)}
+  :root[data-theme="light"] .j.hostile,
+  :root[data-theme="light"] .side.pros{background:rgba(183,68,62,.1);color:#9e3b36;border-color:rgba(183,68,62,.3)}
+  :root[data-theme="light"] .j.charit,
+  :root[data-theme="light"] .side.mem{background:rgba(31,122,76,.09);color:#1f6d47;border-color:rgba(31,122,76,.3)}
+  :root[data-theme="light"] .side.def{background:rgba(36,104,201,.09);color:#245ead;border-color:rgba(36,104,201,.3)}
+  :root[data-theme="light"] .side.hum{background:rgba(169,95,11,.09);color:#874b08;border-color:rgba(169,95,11,.3)}
+  :root[data-theme="light"] .side.det{background:rgba(104,112,125,.1);color:#555d6a;border-color:rgba(104,112,125,.3)}
+  :root[data-theme="light"] .engine{background:linear-gradient(180deg,rgba(36,104,201,.07),var(--bg2));border-color:rgba(36,104,201,.24)}
+  :root[data-theme="light"] .route .card:hover{box-shadow:0 10px 28px rgba(89,65,34,.14)}
+  :root[data-theme="light"] .docket{background:var(--bg2)}
+  :root[data-theme="light"] .stamp.fix{color:#1f6d47;border-color:rgba(31,122,76,.42)}
+  :root[data-theme="light"] .stamp.author,
+  :root[data-theme="light"] .caveat b{color:#874b08;border-color:rgba(169,95,11,.42)}
+  :root[data-theme="light"] .stamp.drop{color:#9e3b36;border-color:rgba(183,68,62,.42)}
   @media(max-width:520px){
     .wrap{padding-left:24px;padding-right:24px}
     header.hero{padding-top:62px}

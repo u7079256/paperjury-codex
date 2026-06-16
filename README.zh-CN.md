@@ -18,7 +18,13 @@
 </p>
 
 <p align="center">
-  <a href="https://u7079256.github.io/paperjury/overview.html?lang=zh"><img src="docs/overview-card.png" alt="PaperJury 交互式总览" width="760"></a>
+  <a href="https://u7079256.github.io/paperjury/overview.html?lang=zh">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="docs/overview-card-dark.png">
+      <source media="(prefers-color-scheme: light)" srcset="docs/overview-card-light.png">
+      <img src="docs/overview-card.png" alt="PaperJury interactive overview" width="760">
+    </picture>
+  </a>
 </p>
 
 **PaperJury Codex 是 PaperJury 的 Codex 版。** 它把投稿前自查做成一套闭环：**审稿 → 裁定 → 修改 → 复查**。你可以让它像 reviewer 一样挑问题，也可以让它安全地改一处 LaTeX / Markdown；真正落稿前，它会先把补丁交给你确认。
