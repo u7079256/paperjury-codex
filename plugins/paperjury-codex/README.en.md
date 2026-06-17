@@ -9,7 +9,7 @@
 > A pre-submission AI review stress-test for research papers.
 
 <p align="center">
-  <a href="https://u7079256.github.io/paperjury/paperjury-paper.pdf"><img alt="Read the paper (PDF)" src="https://img.shields.io/badge/Paper-PDF-b31b1b?style=for-the-badge&logo=latex&logoColor=white"></a>
+  <a href="https://arxiv.org/abs/2606.16322"><img alt="Read the paper on arXiv" src="https://img.shields.io/badge/arXiv-2606.16322-b31b1b?style=for-the-badge&logo=arxiv&logoColor=white"></a>
   <a href="https://u7079256.github.io/paperjury/overview.html?lang=en"><img alt="Open the live interactive overview" src="https://img.shields.io/badge/Open_the_interactive_overview-d6a14b?style=for-the-badge&logo=githubpages&logoColor=white"></a>
   <a href="https://github.com/u7079256/paperjury"><img alt="Claude Code version" src="https://img.shields.io/badge/Claude_Code_version-2b2d42?style=for-the-badge"></a>
   <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-3b3d47?style=for-the-badge">
@@ -31,7 +31,7 @@ Interactive overview: the [live site](https://u7079256.github.io/paperjury/overv
 
 ## 📰 News
 
-- 📄 **The PaperJury paper is out.** Read the preprint: [*PaperJury: Due-Process Review for Bounded LaTeX Revision*](https://u7079256.github.io/paperjury/paperjury-paper.pdf) — the full review → verdict → revise → verify engine written up as a paper.
+- 📄 **The PaperJury paper is on arXiv.** Read it here: [*PaperJury: Due-Process Review for Bounded LaTeX Revision*](https://arxiv.org/abs/2606.16322) (arXiv:2606.16322) — the full review → verdict → revise → verify engine written up as a paper.
 - 🚀 **Codex plugin released.** PaperJury Codex is now packaged for the Codex plugin marketplace route. If you are interested in pre-submission paper review workflows, please ⭐ star this repo; we would also greatly appreciate issues, feedback, and suggestions.
 - 🔔 **v1.0 release:** the Codex plugin now includes a non-blocking update reminder that points users to the latest stable release when a newer tag exists.
 - 🧪 **Dogfood sample added:** this repo now includes a compact dogfood sample with before/after PDFs and a human-verified run report.
