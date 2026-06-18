@@ -12,6 +12,7 @@
   <a href="https://arxiv.org/abs/2606.16322"><img alt="Read the paper on arXiv" src="https://img.shields.io/badge/arXiv-2606.16322-b31b1b?style=for-the-badge&logo=arxiv&logoColor=white"></a>
   <a href="https://u7079256.github.io/paperjury/overview.html?lang=en"><img alt="Open the live interactive overview" src="https://img.shields.io/badge/Open_the_interactive_overview-d6a14b?style=for-the-badge&logo=githubpages&logoColor=white"></a>
   <a href="https://github.com/u7079256/paperjury"><img alt="Claude Code version" src="https://img.shields.io/badge/Claude_Code_version-2b2d42?style=for-the-badge"></a>
+  <a href="samples/dogfood/"><img alt="View the dogfood sample" src="https://img.shields.io/badge/Sample-Dogfood-2f7d55?style=for-the-badge"></a>
   <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-3b3d47?style=for-the-badge">
 </p>
 
@@ -25,7 +26,20 @@ PaperJury turns paper feedback into a closed loop: review → verdict → revise
 
 It offers three modes: direct-edit, review, and auto. PaperJury is built for pre-submission self-checking. It does not replace peer review, it does not invent missing experiments, and it keeps research-level decisions with the author.
 
+> **RedNote community milestone:** the PaperJury post has reached **30k views** and **1.8k saves**. Thanks for helping it reach more people writing and revising papers.
+
 Interactive overview: the [live site](https://u7079256.github.io/paperjury/overview.html?lang=en) (GitHub Pages), or [`docs/overview.html`](docs/overview.html) in-repo.
+
+---
+
+## What you get
+
+| Output | What it contains |
+|---|---|
+| **Issue ledger** | Evidence, location, verdict, and status for every reviewer-style issue. |
+| **Reviewable patches** | Minimal edits for safe fixes only; risky edits are queued for author judgment. |
+| **Verification report** | Real LaTeX and formatting checks when the toolchain exists; explicit degradation when it does not. |
+| **Dogfood sample** | [`samples/dogfood/`](samples/dogfood/) includes before/after PDFs and a human-verified run report. |
 
 ---
 
@@ -95,7 +109,7 @@ phase inputs, outputs, isolation, and validation.
 
 ---
 
-## What you get
+## Why it works
 
 Most writing tools only push your paper forward: they draft and they polish. None of them argues the other side of your claims the way a reviewer will. PaperJury is built around that gap, in four parts.
 
@@ -155,7 +169,22 @@ Rule of thumb: **one change → just say it; want it picked apart → say "revie
 
 ---
 
-## Engine overview
+## Technical details
+
+If you only want to use PaperJury, you can skip this section. If you want the mechanism, source layout, or agent-driving details, start here:
+
+| What you want to inspect | Entry point |
+|---|---|
+| Real run output | [`samples/dogfood/RUN_REPORT.md`](samples/dogfood/RUN_REPORT.md) |
+| Codex runtime / agent driving guide | [`codex/AGENT-GUIDE.md`](codex/AGENT-GUIDE.md) · [`codex/runtime.md`](codex/runtime.md) |
+| Semantic phase contracts | [`codex/phase-contracts.md`](codex/phase-contracts.md) |
+| Full protocol and ledger state machine | [`references/review-engine-v3.md`](references/review-engine-v3.md) · [`references/ledger-schema.md`](references/ledger-schema.md) |
+| Visual overview | [live interactive overview](https://u7079256.github.io/paperjury/overview.html?lang=en) |
+
+<details>
+<summary><b>Expand engine, runtime, and repository details</b></summary>
+
+### Engine overview
 
 The courtroom engine is `assign-reviewers → reading-check → coverage-auditor → merge → {trial ‖ polish} → recall-audit → drafter → {edit-audit | meaning-audit} → clerk`. Generation is bounded (N holistic domain reviewers, not a per-(unit × lens) flood); adjudication is routed by contestability; edits are guarded by risk; the multi-round loop converges via a deterministic clerk. The **deterministic guards in `scripts/`** run orchestrator-side via Node between semantic calls.
 
@@ -232,6 +261,23 @@ The writing toolkit names (prompt bodies not shown here): `translate-to-english`
 Your project files, ledger, journal, and patches stay inside your local paper project. PaperJury has no backend or server of its own, so nothing is sent to a PaperJury server. The review runs through your own Codex session, which means the model itself may run in the cloud: how your content is handled there follows the terms and settings of that host environment, not anything PaperJury adds on top.
 
 ---
+
+## Project structure
+
+| Path | Purpose |
+|---|---|
+| `plugins/paperjury-codex/` | Codex plugin release package, including README, skill, runtime resources, and marketplace metadata. |
+| `codex/` | Runtime mapping, phase contracts, and agent driving guide for Codex. |
+| `agents/` | Semantic agent definitions used by the Codex port. |
+| `scripts/` | Deterministic guards: ledger, journal, apply-patch, anchor-diff, cross-ref, compile-guard, doctor, and related checks. |
+| `references/` | Engine protocol, ledger schema, reviewer personas, writing toolkit, and methodology notes. |
+| `docs/` | Interactive overview, site assets, and design-entry docs. |
+| `samples/dogfood/` | Before/after PDFs and a human-verified run report from a real dogfood run. |
+| `tests/` | Tests for deterministic scripts and core state-machine behavior. |
+
+---
+
+</details>
 
 ## Roadmap
 
