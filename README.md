@@ -32,7 +32,15 @@
 
 刚写完初稿、投稿前想再自查一遍，或者只想先让它挑一遍风险，都可以直接用日常话描述需求；不用先研究它的内部机制。
 
-> **RedNote（小红书）里程碑：** 相关分享已经达到 **3 万浏览**、**1.8k 收藏**。感谢大家转发和收藏，也感谢大家把 PaperJury 推荐给更多正在赶论文、改论文的朋友。
+## News
+
+- **RedNote（小红书）里程碑：** 相关分享已经达到 **3 万浏览**、**1.8k 收藏**。感谢大家转发和收藏，也感谢大家把 PaperJury 推荐给更多正在赶论文、改论文的朋友。
+- **PaperJury 论文已上 arXiv。** arXiv 页面：[*PaperJury: Due-Process Review for Bounded LaTeX Revision*](https://arxiv.org/abs/2606.16322)（arXiv:2606.16322）。论文系统介绍了「审稿 → 裁定 → 修改 → 复查」这套引擎。
+- **Codex plugin 已发布。** PaperJury Codex 现在可以通过 Codex plugin marketplace 安装；需要时也可以继续用 legacy clone 安装。
+- **v1.0 release。** Codex plugin 带有软更新提醒；发现新的稳定 tag 时只提示，不打断当前工作。
+- **Dogfood sample 已加入。** 仓库里放了修改前后 PDF 和人工核对过的运行报告。
+
+---
 
 **PaperJury Codex 是 PaperJury 的 Codex 版。** 它把投稿前自查组织成一套闭环：**审稿 → 裁定 → 修改 → 复查**。你可以让它像 reviewer 一样挑问题，也可以让它安全地改一处 LaTeX / Markdown；真正落稿前，它会先把补丁交给你确认。
 
@@ -69,6 +77,7 @@
 
 ## 目录
 
+- [News](#news)
 - [适合谁](#适合谁)
 - [你会得到什么](#你会得到什么)
 - [快速上手](#快速上手)
@@ -80,19 +89,6 @@
 - [深入了解](#深入了解)
 - [Roadmap](#roadmap)
 - [致谢](#致谢)
-
-<details>
-<summary><b>更新日志</b></summary>
-
-> **PaperJury 论文已上 arXiv。** arXiv 页面：[*PaperJury: Due-Process Review for Bounded LaTeX Revision*](https://arxiv.org/abs/2606.16322)（arXiv:2606.16322）。论文系统介绍了「审稿 → 裁定 → 修改 → 复查」这套引擎。
->
-> **Codex plugin 已发布。** PaperJury Codex 现在可以通过 Codex plugin marketplace 安装；需要时也可以继续用 legacy clone 安装。
->
-> **v1.0 release。** Codex plugin 带有软更新提醒；发现新的稳定 tag 时只提示，不打断当前工作。
->
-> **Dogfood sample 已加入。** 仓库里放了修改前后 PDF 和人工核对过的运行报告。
-
-</details>
 
 ---
 

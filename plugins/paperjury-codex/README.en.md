@@ -26,8 +26,6 @@ PaperJury turns paper feedback into a closed loop: review → verdict → revise
 
 It offers three modes: direct-edit, review, and auto. PaperJury is built for pre-submission self-checking. It does not replace peer review, it does not invent missing experiments, and it keeps research-level decisions with the author.
 
-> **RedNote community milestone:** the PaperJury post has reached **30k views** and **1.8k saves**. Thanks for helping it reach more people writing and revising papers.
-
 Interactive overview: the [live site](https://u7079256.github.io/paperjury/overview.html?lang=en) (GitHub Pages), or [`docs/overview.html`](docs/overview.html) in-repo.
 
 ---
@@ -45,6 +43,7 @@ Interactive overview: the [live site](https://u7079256.github.io/paperjury/overv
 
 ## 📰 News
 
+- **RedNote community milestone:** the PaperJury post has reached **30k views** and **1.8k saves**. Thanks for sharing and saving it, and for recommending PaperJury to more friends who are writing and revising papers.
 - 📄 **The PaperJury paper is on arXiv.** Read it here: [*PaperJury: Due-Process Review for Bounded LaTeX Revision*](https://arxiv.org/abs/2606.16322) (arXiv:2606.16322) — the full review → verdict → revise → verify engine written up as a paper.
 - 🚀 **Codex plugin released.** PaperJury Codex is now packaged for the Codex plugin marketplace route. If you are interested in pre-submission paper review workflows, please ⭐ star this repo; we would also greatly appreciate issues, feedback, and suggestions.
 - 🔔 **v1.0 release:** the Codex plugin now includes a non-blocking update reminder that points users to the latest stable release when a newer tag exists.
