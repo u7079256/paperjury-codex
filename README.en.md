@@ -34,16 +34,16 @@ Interactive overview: the [live site](https://u7079256.github.io/paperjury/overv
 
 | Output | What it contains |
 |---|---|
-| **Issue ledger** | Evidence, location, verdict, and status for every reviewer-style issue. |
-| **Reviewable patches** | Minimal edits for safe fixes only; risky edits are queued for author judgment. |
-| **Verification report** | Real LaTeX and formatting checks when the toolchain exists; explicit degradation when it does not. |
-| **Dogfood sample** | [`samples/dogfood/`](samples/dogfood/) includes before/after PDFs and a human-verified run report. |
+| **📋 Issue ledger** | Evidence, location, verdict, and status for every reviewer-style issue. |
+| **🧩 Reviewable patches** | Minimal edits for safe fixes only; risky edits are queued for author judgment. |
+| **🛠️ Verification report** | Real LaTeX and formatting checks when the toolchain exists; explicit degradation when it does not. |
+| **🧪 Dogfood sample** | [`samples/dogfood/`](samples/dogfood/) includes before/after PDFs and a human-verified run report. |
 
 ---
 
 ## 📰 News
 
-- **RedNote community milestone:** the PaperJury post has reached **30k views** and **1.8k saves**. Thanks for sharing and saving it, and for recommending PaperJury to more friends who are writing and revising papers.
+- 🎉 **RedNote community milestone:** the PaperJury post has reached **30k views** and **1.8k saves**. Thanks for sharing and saving it, and for recommending PaperJury to more friends who are writing and revising papers.
 - 📄 **The PaperJury paper is on arXiv.** Read it here: [*PaperJury: Due-Process Review for Bounded LaTeX Revision*](https://arxiv.org/abs/2606.16322) (arXiv:2606.16322) — the full review → verdict → revise → verify engine written up as a paper.
 - 🚀 **Codex plugin released.** PaperJury Codex is now packaged for the Codex plugin marketplace route. If you are interested in pre-submission paper review workflows, please ⭐ star this repo; we would also greatly appreciate issues, feedback, and suggestions.
 - 🔔 **v1.0 release:** the Codex plugin now includes a non-blocking update reminder that points users to the latest stable release when a newer tag exists.
@@ -112,10 +112,10 @@ phase inputs, outputs, isolation, and validation.
 
 Most writing tools only push your paper forward: they draft and they polish. None of them argues the other side of your claims the way a reviewer will. PaperJury is built around that gap, in four parts.
 
-- **Adversarial by construction.** Your paper gets due process, not one pass of suggestions: N domain reviewers read the whole paper, a contestability router sends the real disputes to a two-sided trial, a jury of 5 (escalating to 12 only when it cannot reach a clear majority) deliberates under isolation, and a judge returns one of three verdicts: fix it, needs you, or no fix. A verdict can land "no fix", which a yes-and rewriter structurally cannot return.
-- **Closed-loop, not forward-only.** Each round is a clean re-review of the edited paper (the panel never sees the prior ledger, so a re-raised issue is real corroboration, not anchoring), and a deterministic clerk reconciles every round into one ledger until a clean round surfaces nothing new. Before any edit, fresh skeptics try to revive whatever got wrongly dropped and stress-test strong-consensus verdicts.
-- **Guardrails, not autopilot.** Safe fixes land under risk-proportional safety (frozen anchors, a per-passage edit cap, an anchor and cross-section meaning audit), always behind your sign-off. Risky edits are not applied silently; they queue for one human pass.
-- **Real compile, not just critique.** It runs an actual LaTeX build on your machine and reports true errors, undefined refs, overfull boxes, and the page count, or degrades honestly to a structural lint when no toolchain is present. Deterministic desk-reject checks catch the classics: anonymization leaks, margin and spacing hacks, documentclass drift, missing required sections, and page-limit overflow, checked against your project's own constraints.
+- ⚖️ **Adversarial by construction.** Your paper gets due process, not one pass of suggestions: N domain reviewers read the whole paper, a contestability router sends the real disputes to a two-sided trial, a jury of 5 (escalating to 12 only when it cannot reach a clear majority) deliberates under isolation, and a judge returns one of three verdicts: fix it, needs you, or no fix. A verdict can land "no fix", which a yes-and rewriter structurally cannot return.
+- 🔁 **Closed-loop, not forward-only.** Each round is a clean re-review of the edited paper (the panel never sees the prior ledger, so a re-raised issue is real corroboration, not anchoring), and a deterministic clerk reconciles every round into one ledger until a clean round surfaces nothing new. Before any edit, fresh skeptics try to revive whatever got wrongly dropped and stress-test strong-consensus verdicts.
+- 🛡️ **Guardrails, not autopilot.** Safe fixes land under risk-proportional safety (frozen anchors, a per-passage edit cap, an anchor and cross-section meaning audit), always behind your sign-off. Risky edits are not applied silently; they queue for one human pass.
+- 🛠️ **Real compile, not just critique.** It runs an actual LaTeX build on your machine and reports true errors, undefined refs, overfull boxes, and the page count, or degrades honestly to a structural lint when no toolchain is present. Deterministic desk-reject checks catch the classics: anonymization leaks, margin and spacing hacks, documentclass drift, missing required sections, and page-limit overflow, checked against your project's own constraints.
 
 ---
 
